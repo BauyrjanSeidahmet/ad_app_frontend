@@ -5,8 +5,8 @@ import {Switch, Route} from "react-router-dom";
 import Layout from './components/Layout/Layout';
 import Products from './containers/Products/Products';
 // import NewProduct from "./containers/NewProduct/NewProduct";
-// import Register from "./containers/Register/Register";
-// import Login from "./containers/Login/Login";
+import Register from "./containers/Register/Register";
+import Login from "./containers/Login/Login";
 
 // const ProtectedRoute = ({isAllowed, redirectTo, ...props}) => {
 //     return isAllowed ?
@@ -20,6 +20,8 @@ const App = () => {
             <Layout>
                 <Switch>
                   <Route exact path={['/', '/products']} render={() => <Products/>}/>
+                  <Route exact path='/register' render={() => <Register/>}/>
+                  <Route exact path='/login' render={() => <Login/>}/>
                
                         {/* <ProtectedRoute
                             isAllowed={user !== null}
