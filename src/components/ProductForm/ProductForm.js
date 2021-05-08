@@ -62,6 +62,7 @@ console.log('state', state)
       <Grid container direction="column" spacing={2}>
         <Grid item>
           <TextField
+            required
             fullWidth
             variant="outlined"
             label="Title"
@@ -72,6 +73,7 @@ console.log('state', state)
         </Grid>
         <Grid item>
           <TextField
+            required
             fullWidth
             variant="outlined"
             label="Price"
@@ -82,6 +84,7 @@ console.log('state', state)
         </Grid>
         <Grid item>
           <TextField
+            required
             fullWidth
             multiline
             rows={3}
@@ -101,7 +104,7 @@ console.log('state', state)
         </Grid>
         <Grid item>
                     <p>Category</p> 
-                    <select onChange={onChangeSelect} className='select'>
+                    <select onChange={onChangeSelect} className='select' required>
                         <option>Select Category</option>
                         <option value='computers'>Computers</option>
                         <option value='cars'>Cars</option>

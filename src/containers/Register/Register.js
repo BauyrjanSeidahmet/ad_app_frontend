@@ -63,7 +63,7 @@ const Register = () => {
                 name="displayName"
                 value={state.displayName}
                 onChange={inputChangeHandler}
-                error={getFieldError("password")}
+                error={getFieldError("displayName")}
                 label="Display Name"
                 type="text"
             />
@@ -71,7 +71,7 @@ const Register = () => {
                 name="phone"
                 value={state.phone}
                 onChange={inputChangeHandler}
-                error={getFieldError("password")}
+                error={getFieldError("phone")}
                 label="Phone Number"
                 type="tel"
             />

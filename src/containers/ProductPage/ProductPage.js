@@ -1,8 +1,9 @@
 import axios from '../../axiosApi'
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import defaultImage from "../../assets/images/defaultImage.png";
+import { deleteProduct } from '../../store/actions/productsAction';
 import './ProductPage.css'
 
 const ProductPage = ({title, price, image}) => {
@@ -22,11 +23,25 @@ const ProductPage = ({title, price, image}) => {
     makeRequest()
 }, [dispatch]);
 
-console.log('state product', product)
+console.log('state product user', product.user)
 
 let cardImage = defaultImage;
 if (product.image) {
   cardImage = "http://localhost:8000/uploads/" + product.image;
+}
+
+const deleteItem = () => {
+  console.log('product.id', param.id)
+  dispatch(deleteProduct(param.id))
+}
+
+const user = useSelector(state => state.users.user);
+
+let displayBtn = 'none'
+if (user) {
+  if (product.user === user._id) {
+    displayBtn = 'block'
+  }
 }
 
   return (
@@ -36,6 +51,7 @@ if (product.image) {
         </div>
         <h4>{product.title}</h4>
         <span>{product.price && product.price.$numberDecimal} ₸</span>
+        <button style={{display: displayBtn}} onClick={deleteItem}>Delete</button>
       </div>
   );
 };

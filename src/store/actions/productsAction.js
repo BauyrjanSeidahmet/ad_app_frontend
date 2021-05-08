@@ -1,5 +1,5 @@
 import axios from '../../axiosApi'
-import { FETCH_PRODUCTS_SUCCESS, CREATE_PRODUCT_SUCCESS } from '../actionTypes';
+import { FETCH_PRODUCTS_SUCCESS, CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS } from '../actionTypes';
 import {push} from "connected-react-router";
 
 export const fetchProductsSuccess = products => {
@@ -33,3 +33,18 @@ export const fetchProducts = url => {
     };
   };
 
+  const deleteProductSuccess = () => {
+    return {type: DELETE_PRODUCT_SUCCESS};
+  }
+
+  export const deleteProduct = (id) => {
+    return async dispatch => {
+      try {
+        await axios.delete(`/products/${id}`);
+        dispatch(deleteProductSuccess());
+        dispatch(push("/"));
+      } catch(e) {
+        console.log(e);
+      }
+    };
+  };
