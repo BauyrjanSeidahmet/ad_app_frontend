@@ -27,12 +27,12 @@ const persistedState = loadFromLocalStorage();
 
 const store = createStore(rootReducer, persistedState, enhancers);
 
-// store.subscribe(() => {
-//     saveToLocalStorage({
-//         users: {
-//             user: store.getState().users.user
-//         }
-//     });
-// });
+store.subscribe(() => {
+    saveToLocalStorage({
+        users: {
+            user: store.getState().users.user
+        }
+    });
+});
 
 export default store;

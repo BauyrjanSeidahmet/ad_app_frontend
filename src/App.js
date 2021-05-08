@@ -4,9 +4,10 @@ import {Switch, Route} from "react-router-dom";
 // import {Redirect} from "react-router-dom";
 import Layout from './components/Layout/Layout';
 import Products from './containers/Products/Products';
-// import NewProduct from "./containers/NewProduct/NewProduct";
+import AddProduct from "./containers/AddProduct/AddProduct";
 import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
+import ProductPage from './containers/ProductPage/ProductPage';
 
 // const ProtectedRoute = ({isAllowed, redirectTo, ...props}) => {
 //     return isAllowed ?
@@ -20,8 +21,10 @@ const App = () => {
             <Layout>
                 <Switch>
                   <Route exact path={['/', '/products']} render={() => <Products/>}/>
+                  <Route exact path='/products/:id' render={() => <ProductPage/>}/>
                   <Route exact path='/register' render={() => <Register/>}/>
                   <Route exact path='/login' render={() => <Login/>}/>
+                  <Route exact path='/add' render={() => <AddProduct/>}/>
                
                         {/* <ProtectedRoute
                             isAllowed={user !== null}
