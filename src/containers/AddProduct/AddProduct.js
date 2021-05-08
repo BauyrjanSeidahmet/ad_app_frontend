@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import ProductForm from '../../components/ProductForm/ProductForm';
 import { createProduct } from "../../store/actions/productsAction";
 
-const NewProduct = props => {
+const NewProduct = () => {
 
   const dispatch = useDispatch();
   const formSubmitHandler = async product => {

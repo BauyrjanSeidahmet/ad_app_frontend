@@ -1,6 +1,6 @@
 import axios from "../../axiosApi";
 import {push} from "connected-react-router";
-import { CREATE_USER_FAILURE, CREATE_USER_SUCCESS, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from "../actionTypes";
+import { CREATE_USER_FAILURE, CREATE_USER_SUCCESS, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOGOUT_USER } from "../actionTypes";
 
 const createUserSuccess = user => {
     return {type: CREATE_USER_SUCCESS, user};
@@ -43,3 +43,11 @@ export const loginUser = userData => {
         }
     };
 };
+
+export const logoutUser = () => {
+    return async dispatch => {
+      await axios.delete("/users/sessions");
+      dispatch({type: LOGOUT_USER});
+      dispatch(push("/login"));
+    };
+  };
