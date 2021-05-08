@@ -1,0 +1,11 @@
+.CategoriesList {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  width: 15%;
+}
+
+.categoryLink {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
