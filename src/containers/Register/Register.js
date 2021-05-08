@@ -28,8 +28,6 @@ const Register = () => {
         await dispatch(createUser({...state}));
     };
 
-    console.log('state inputs', state)
-
     const getFieldError = fieldName => {
         try {
             return error.errors[fieldName].message;

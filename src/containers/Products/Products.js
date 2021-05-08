@@ -23,22 +23,24 @@ const Products = () => {
     }, [categoryName]);
 
     return (
-        <>
+        <div className='Products'>
             <CategoriesList/>
-            <h2 className='catName'>{categoryName || 'All Items'}</h2>
-            <div className='gridContainer'>
-                {products.map(product => {
-                    return <ProductItem
-                        id={product._id}
-                        title={product.title}
-                        category={product.category}
-                        price={product.price.$numberDecimal}
-                        image={product.image}
-                        key={product._id}
-                        />
-                })}
+            <div>
+                <h2 className='catName'>{categoryName || 'All Items'}</h2>
+                <div className='gridContainer'>
+                    {products.map(product => {
+                        return <ProductItem
+                            id={product._id}
+                            title={product.title}
+                            category={product.category}
+                            price={product.price.$numberDecimal}
+                            image={product.image}
+                            key={product._id}
+                            />
+                    })}
+                </div>
             </div>
-        </>
+        </div>
     );
 };
 

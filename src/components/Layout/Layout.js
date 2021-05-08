@@ -15,20 +15,18 @@ const Layout = props => {
     return (
         <div className='wholePage'>
             <div className='header'>
-                <p className='logo'>Flea Market</p>
+                <NavLink className='logo' to='/'>Flea Market</NavLink>
                 <div>
                     {
                         user ?
                         <>
                             <span>Hello, {user.displayName}</span>
                             <NavLink className='menuLink' to='/add'>Add new item</NavLink>
-                            or
                             <span className='logoutBtn' onClick={logout}>Logout</span>
                         </>
                         :
                         <div>
                             <NavLink className='menuLink' to='/register'>Register</NavLink>
-                            or
                             <NavLink className='menuLink' to='/login'>Sign in</NavLink>
                         </div>
                     }
