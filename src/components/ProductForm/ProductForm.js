@@ -55,8 +55,6 @@ const ProductForm = props => {
     }
 }
 
-console.log('state', state)
-
   return (
     <form onSubmit={formSubmitHandler}>
       <Grid container direction="column" spacing={2}>
